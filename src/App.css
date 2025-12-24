@@ -1,0 +1,554 @@
+:root {
+  --color-green: #345C3D;   /* Paulie green */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+}
+
+/* Navbar container */
+.navbar {
+  position: fixed;     /* sticks it to the viewport */
+  top: 0;              /* pin at top */
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #000;    /* solid black bar */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;       /* makes sure it’s above everything */
+}
+
+body {
+  background: var(--color-green);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* centers main-content horizontally */
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f5f7fa;
+  box-sizing: border-box;
+
+  /* ✅ This moves the whole main-content box down */
+  margin-top: 80px; 
+
+  /* optional aesthetics */
+  border-radius: 20px;
+  padding: 2rem; /* internal spacing around your container */
+  width: fit-content;
+}
+
+
+
+.container {
+  max-width: 700px;    /* Control content width */
+  width: 100%;         /* Responsive width inside that max */
+  margin: 0 1rem;      /* Side spacing for small screens */
+}
+
+/* Logo */
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-green);
+}
+
+/* Center links */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  background: var(--color-green);
+}
+
+/* Active route highlight */
+.nav-link.active {
+  background: var(--color-green);
+}
+
+/* Right side */
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Post button */
+.btn {
+  background: var(--color-green);
+  color: var(--color-white);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #2a4630; /* darker green on hover */
+}
+
+/* User icon */
+.user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-gray-light);
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+/* Logo image */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;   /* space between logo and text */
+}
+
+/* Logo image */
+.logo-img {
+  height: 45px;   /* adjust to fit navbar height */
+  width: auto;    /* keeps proportions */
+}
+
+/* Logo text */
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-white);
+}
+
+
+/* Home Page Container */
+
+.post-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.post-box textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.post-box button {
+  align-self: flex-end;
+  background: var(--color-green);
+  color: var(--color-white);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.post-box button:hover {
+  background: #2a4630; /* darker green */
+}
+
+.posts-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.post {
+  background: var(--color-white);
+  color: var(--color-black);   /* 👈 force text black */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.post p {
+  color: var(--color-black);   /* 👈 ensure paragraph text is black */
+  margin: 5px 0 0 0;
+}
+
+.post strong {
+  color: var(--color-black);   /* 👈 username also black */
+}
+
+
+/* Profile Page */
+
+
+/* The container that holds all profile info */
+.profile-container {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  width: 100%; /* fits within max width */
+  text-align: center;
+}
+
+/* Name + handle */
+.profile-name {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #222;
+}
+
+.profile-handle {
+  color: #777;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Bio styling */
+.profile-bio {
+  font-style: italic;
+  color: #444;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Follower stats */
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Favorite Teams section */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+
+  display: flex;
+  justify-content: flex-end; /* pushes content to the right */
+  align-items: center;
+  gap: 0.5rem; /* adds a bit of space between the text and button */
+}
+
+.section-title span {
+  margin-right: auto; /* keeps “Favorite Teams” on the left */
+}
+
+.add-team-btn {
+  background: var(--color-green);
+  color: var(--color-white);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.1s ease;
+}
+
+/* Team list */
+.team-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #fdfdfd;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  margin-bottom: 0.6rem;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.team-item:hover {
+  transform: scale(1.02);
+}
+
+.team-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: contain;
+  background-color: #f0f0f0;
+}
+
+.team-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.team-meta {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.school-search-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.school-search-box {
+  position: relative; 
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  width: 340px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.25s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.school-search-input {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.school-search-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#school-search-logo{
+  color: black;
+}
+
+.school-search-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.6rem;
+  border-radius: 10px;
+  transition: background 0.25s ease, transform 0.1s ease;
+}
+
+.school-search-item:hover {
+  background: #f7f7f7;
+  transform: translateX(3px);
+}
+
+.close-search-btn {
+  background: transparent;
+  border: none;
+  color: #666;
+  font-size: 1rem;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  transition: color 0.2s ease;
+}
+
+.close-search-btn:hover {
+  color: #222;
+}
+
+.add-school-btn {
+  margin-left: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* =============================
+   🔹 FAN QUESTION FORM
+============================= */
+.fan-question-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fan-question-form h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.fan-question-form label {
+  font-weight: 600;
+  color: #444;
+  font-size: 0.9rem;
+  margin-bottom: -4px;
+}
+
+.fan-question-form input[type="date"],
+.fan-question-form select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.fan-question-form input[type="date"]:focus,
+.fan-question-form select:focus {
+  border-color: #007aff;
+  outline: none;
+}
+
+.fan-form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.fan-form-buttons button {
+  flex: 1;
+  margin: 0 4px;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.1s ease;
+}
+
+.fan-form-buttons button:first-child {
+  background: #eee;
+  color: #333;
+}
+
+.fan-form-buttons button:last-child {
+  background: #007aff;
+  color: white;
+}
+
+.fan-form-buttons button:hover {
+  transform: scale(1.02);
+}
+
+
+/* Loading message */
+.loading-text {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #555;
+}
+
+
+/* Authentication Pages (Login + Signup) */
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f5f7fa;
+}
+
+.auth-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.auth-box h2 {
+  margin-bottom: 1.5rem;
+}
+
+.auth-box input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.auth-box button {
+  background: #007bff;
+  color: white;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.auth-box button:hover {
+  background: #0056b3;
+}
+
+.toggle-auth span {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  margin-bottom: 1rem;
+}
