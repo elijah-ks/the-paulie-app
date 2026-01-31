@@ -26,7 +26,6 @@ export default function Navbar({ user }) {
       <nav className="navbar-links">
         <NavLink to="/" className="nav-link">Home</NavLink>
         <NavLink to="/profile" className="nav-link">Profile</NavLink>
-        <NavLink to="/messages" className="nav-link">Messages</NavLink>
       </nav>
 
       {/* Right: User controls */}

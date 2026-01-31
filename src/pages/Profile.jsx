@@ -16,6 +16,9 @@ export default function Profile() {
   const [selectedSchool, setSelectedSchool] = useState(null);
   const [fanSince, setFanSince] = useState("");
   const [fanConnection, setFanConnection] = useState("");
+  const [showSettingsModal, setShowSettingsModal] = useState(false);
+
+  const [bioBox, setBioBox] = useState("");
 
 
 useEffect(() => {
@@ -43,6 +46,9 @@ useEffect(() => {
 
         const profileData = profileSnap.data();
         setProfile(profileData);
+
+        setBioBox(profileData.Bio || "");
+
 
         // ✅ Fetch all schools
         const schoolsRef = collection(db, "schools");
@@ -168,12 +174,36 @@ const handleSubmitFavorite = async (teamId) => {
   }
 };
 
+const handleSaveBio = async () => {
+  try {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (!user) return;
+
+    const profileRef = doc(db, "profiles", user.uid);
+
+    await updateDoc(profileRef, {
+      Bio: bioBox,
+    });
+
+    setProfile((prev) => ({
+      ...prev,
+      Bio: bioBox,
+    }));
+
+    alert("Bio updated!");
+  } catch (error) {
+    console.error("Error updating bio:", error);
+  }
+};
+
 
   if (loading) return <p className="loading-text">Loading profile...</p>;
   if (!profile) return <p>No profile data found</p>;
 
   return (
       <div className="profile-container">
+        <button className="settings-icon" onClick={() => setShowSettingsModal(true)}>⚙️</button>
         <h1 className="profile-name">{profile.displayName}</h1>
         <p className="profile-handle">{profile.Handle}</p>
         <p className="profile-bio">“{profile.Bio}”</p>
@@ -296,6 +326,37 @@ const handleSubmitFavorite = async (teamId) => {
           </div>
         </div>
       )}
+
+      {showSettingsModal && (
+  <div className="settings-modal">
+    <div className="settings-modal-box">
+      
+      <button
+        className="close-search-btn"
+        onClick={() => setShowSettingsModal(false)}
+      >
+        ✖ Close
+      </button>
+
+      <h2>Settings</h2>
+
+      {/* Settings content goes here */}
+    <textarea
+      className="settings-textbox"
+      value={bioBox}
+      onChange={(e) => setBioBox(e.target.value)}
+      placeholder="Write your bio..."
+      rows="4"
+    />
+
+    <button className="save-bio-btn" onClick={handleSaveBio}>
+      Save Bio
+    </button>
+
+
+    </div>
+  </div>
+)}
 
       </div>
   );
